@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 import Form from "@components/Form";
 
@@ -10,7 +11,7 @@ const UpdatePrompt = () => {
   const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
 
-  const [sumbitting, setSumbitting] = useState(false);
+  const [submitting, setSumbitting] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
     tag: "",
@@ -54,6 +55,16 @@ const UpdatePrompt = () => {
       setSumbitting(false);
     }
   };
+
+  return (
+    <Form
+      type="Edit"
+      post={post}
+      setPost={setPost}
+      submitting={submitting}
+      handleSubmit={updatePrompt}
+    ></Form>
+  );
 };
 
 const EditPrompt = () => {
