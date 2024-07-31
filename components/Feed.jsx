@@ -23,6 +23,17 @@ const Feed = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [searchedResults, setSearchedResults] = useState([]);
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/api/prompt");
+      const data = await response.json();
+
+      setAllPosts(data);
+    };
+
+    fetchPosts();
+  }, []);
+
   const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i");
     return allPosts.filter(
@@ -46,17 +57,6 @@ const Feed = () => {
     const searchResult = filterPrompts(tagName);
     setSearchedResults(searchResult);
   };
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch("/api/prompt");
-      const data = await response.json();
-
-      setAllPosts(data);
-    };
-
-    fetchPosts();
-  }, []);
 
   return (
     <section className="feed">
