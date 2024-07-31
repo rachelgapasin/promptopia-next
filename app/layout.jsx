@@ -3,6 +3,8 @@ import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Promptopia",
   description: "Discover & Share AI Prompts",
