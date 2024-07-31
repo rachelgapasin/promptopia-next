@@ -7,7 +7,7 @@ import Profile from "@components/Profile";
 
 const UserProfile = ({ params }) => {
   const searchParams = useSearchParams();
-  const firstName = searchParams.get("name");
+  const name = searchParams.get("name");
 
   const [userPosts, setUserPosts] = useState([]);
 
@@ -24,8 +24,8 @@ const UserProfile = ({ params }) => {
 
   return (
     <Profile
-      name={firstName}
-      desc={`Welcome to ${firstName}'s personalized profile page. Explore their exceptional prompts and be inspired by the power of their imagination.`}
+      name={name}
+      desc={`Welcome to ${name}'s personalized profile page. Explore their exceptional prompts and be inspired by the power of their imagination.`}
       data={userPosts}
     />
   );
